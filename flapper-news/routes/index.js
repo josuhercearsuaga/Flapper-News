@@ -79,11 +79,12 @@ router.post('/posts/:post/comments', function(req, res, next) {
 
 /*Store a upvote*/
 router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
-  req.comment.upvote(function(err, comment){
+  req.comment.upvoteComment(function(err, comment){
     if (err) {
+      console.log(err);
       return next(err);
     }
-
+    console.log(comment);
     res.json(comment);
   });
 });
